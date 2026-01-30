@@ -68,7 +68,7 @@ lib/
 <details>
 <summary>Login Screen</summary>
 
-![Login](https://github.com/user-attachments/assets/17f0a33b-5871-4b6c-8836-fa59f67f5ec1)
+![Login]([url=https://postimg.cc/Hrbnq5Xg][img]https://i.postimg.cc/Hrbnq5Xg/Screenshot_20260130_153421.jpg[/img][/url])
 
 </details>
 
