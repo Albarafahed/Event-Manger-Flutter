@@ -68,37 +68,49 @@ lib/
 <details>
 <summary>Login Screen</summary>
 
-![Login]([url=https://postimg.cc/Hrbnq5Xg][img]https://i.postimg.cc/Hrbnq5Xg/Screenshot_20260130_153421.jpg[/img][/url])
+![Login](https://i.postimg.cc/0yBSJ0Nb/Screenshot_20260130_153421.jpg)
+
+</details>
+
+<summary>Language</summary>
+
+![Login](https://i.postimg.cc/kgpStv54/Language.jpg)
 
 </details>
 
 <details>
 <summary>Sign Up Screen</summary>
 
-![Signup](https://github.com/user-attachments/assets/016bcca9-53fc-4d41-9948-472728ec81da)
+![Signup](https://i.postimg.cc/qv5KCx7s/Signup_screen.jpg)
 
 </details>
 
 <details>
 <summary>Home Screen</summary>
 
-<img width="631" height="907" alt="home_screenshot" src="https://github.com/user-attachments/assets/3f80a84b-c733-489c-a4d4-5f2b84199a86" />
-
+![Home](https://i.postimg.cc/ht5m71GW/Home.jpg)
 </details>
 
 <details>
 <summary>Drawer</summary>
 
-![Drawer](https://github.com/user-attachments/assets/5f991023-aded-4314-bb58-463edb79dbae)
+![Drawer](https://i.postimg.cc/T3wmw4TT/Deawer.jpg)
 
 </details>
 
 <details>
 <summary>Settings Screen</summary>
 
-<img width="543" height="925" alt="settings_screenshot" src="https://github.com/user-attachments/assets/cbee79e1-4fb6-476c-b94b-62e8cc797639" />
+![Setting](https://i.postimg.cc/pL6jnJd8/Settingscreen.jpg)
 
 </details>
+
+<details>
+<summary>Settings Screen Dark</summary>
+
+![Setting](https://i.postimg.cc/pLT8T6Px/Darkscreen.jpg)
+
+</details
 
 <details>
 <summary>Chat Screen</summary>
