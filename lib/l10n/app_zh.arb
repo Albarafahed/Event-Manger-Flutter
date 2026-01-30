@@ -80,5 +80,7 @@
   "deleteSuccess": "活动删除成功",
   "addTaskHint": "添加新任务...",
   "noTasksFound": "暂无任务",
-  "tasksProgress": "任务进度"
+  "tasksProgress": "任务进度",
+  "editTask": "编辑任务",
+  "save": "保存"
 }

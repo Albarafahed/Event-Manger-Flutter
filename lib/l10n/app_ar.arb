@@ -88,5 +88,7 @@
   "deleteSuccess": "تم حذف الفعالية بنجاح",
   "addTaskHint": "أضف مهمة جديدة...",
   "noTasksFound":"لا يوجد مهام" ,
-  "tasksProgress": "نسبة إنجاز المهام"
+  "tasksProgress": "نسبة إنجاز المهام",
+  "editTask": "تعديل المهمة",
+  "save": "حفظ" 
 }

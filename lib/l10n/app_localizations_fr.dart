@@ -255,4 +255,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tasksProgress => 'Progression des tâches';
+
+  @override
+  String get editTask => 'Modifier la tâche';
+
+  @override
+  String get save => 'Enregistrer';
 }

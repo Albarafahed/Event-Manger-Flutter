@@ -254,4 +254,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tasksProgress => 'Tasks Progress';
+
+  @override
+  String get editTask => 'Edit Task';
+
+  @override
+  String get save => 'Save';
 }

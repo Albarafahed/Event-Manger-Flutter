@@ -80,5 +80,7 @@
   "deleteSuccess": "Etkinlik silindi",
   "addTaskHint": "Yeni görev ekle...",
   "noTasksFound": "Görev bulunamadı",
-  "tasksProgress": "Görev İlerlemesi"
+  "tasksProgress": "Görev İlerlemesi",
+  "editTask": "Görevi Düzenle",
+  "save": "Kaydet"
 }

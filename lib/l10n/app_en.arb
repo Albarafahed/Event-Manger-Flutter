@@ -82,5 +82,7 @@
   "deleteSuccess": "Event deleted successfully",
   "addTaskHint": "Add a new task...",
   "noTasksFound":"NoTasksFound",
-  "tasksProgress": "Tasks Progress"
+  "tasksProgress": "Tasks Progress",
+  "editTask": "Edit Task",
+  "save": "Save"
 }

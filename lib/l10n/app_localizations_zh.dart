@@ -253,4 +253,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get tasksProgress => '任务进度';
+
+  @override
+  String get editTask => '编辑任务';
+
+  @override
+  String get save => '保存';
 }

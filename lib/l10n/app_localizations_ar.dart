@@ -255,4 +255,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get tasksProgress => 'نسبة إنجاز المهام';
+
+  @override
+  String get editTask => 'تعديل المهمة';
+
+  @override
+  String get save => 'حفظ';
 }

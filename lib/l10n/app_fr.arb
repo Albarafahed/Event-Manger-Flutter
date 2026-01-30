@@ -80,5 +80,7 @@
   "deleteSuccess": "Événement supprimé",
   "addTaskHint": "Ajouter une tâche...",
   "noTasksFound": "Aucune tâche",
-  "tasksProgress": "Progression des tâches"
+  "tasksProgress": "Progression des tâches",
+  "editTask": "Modifier la tâche",
+  "save": "Enregistrer"
 }

@@ -1,5 +1,6 @@
 import 'package:event_manager/controllers/task_controller.dart';
 import 'package:event_manager/l10n/app_localizations.dart';
+import 'package:event_manager/l10n/app_localizations_ar.dart';
 import 'package:event_manager/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -186,13 +187,13 @@ class EventDetailsView extends StatelessWidget {
     final editController = TextEditingController(text: task.taskName);
 
     Get.defaultDialog(
-      title: "تعديل المهمة", // يمكنك ترجمتها في ARB لاحقاً
+      title: AppLocalizations.of(context)!.editTask,
       content: TextField(
         controller: editController,
         decoration: const InputDecoration(border: OutlineInputBorder()),
       ),
-      textConfirm: "حفظ",
-      textCancel: "إلغاء",
+      textConfirm: AppLocalizations.of(context)!.save,
+      textCancel: AppLocalizations.of(context)!.cancel,
       confirmTextColor: Colors.white,
       onConfirm: () {
         controller.updateTaskName(task.id!, editController.text, eventId);

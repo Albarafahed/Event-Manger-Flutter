@@ -254,4 +254,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tasksProgress => 'Görev İlerlemesi';
+
+  @override
+  String get editTask => 'Görevi Düzenle';
+
+  @override
+  String get save => 'Kaydet';
 }

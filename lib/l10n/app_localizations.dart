@@ -595,6 +595,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tasks Progress'**
   String get tasksProgress;
+
+  /// No description provided for @editTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Task'**
+  String get editTask;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate
