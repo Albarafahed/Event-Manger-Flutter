@@ -65,7 +65,7 @@ lib/
 
 </details>
 
-
+<details>
 <summary>Login Screen</summary>
 
 ![Login](https://i.postimg.cc/0yBSJ0Nb/Screenshot_20260130_153421.jpg)
@@ -111,12 +111,14 @@ lib/
 
 ![Setting](https://i.postimg.cc/pLT8T6Px/Darkscreen.jpg)
 
-</details
+</details>
 
 <details>
 <summary>Chat Screen</summary>
 
-</details>
+![Setting](https://i.postimg.cc/4x70cw5C/Chat-Screen.jpg)
+
+</details
 
 <details>
 <summary>Create Event</summary>
@@ -125,6 +127,7 @@ lib/
 
 </details>
 
+<details>
 <summary>Edit Event</summary>
 
 ![Edit Event](https://i.postimg.cc/zGBWBcqz/Editevent.jpg)
