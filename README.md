@@ -61,7 +61,7 @@ lib/
 <details>
 <summary>Splash Screen</summary>
 
-![Splash](https://github.com/user-attachments/assets/55da6214-9a9c-4e7a-b092-f16d4015440b)
+![Splash]([![Splashscreen.jpg](https://i.postimg.cc/B6D23P4n/Splashscreen.jpg)
 
 </details>
 
