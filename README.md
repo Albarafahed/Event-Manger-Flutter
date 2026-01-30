@@ -65,13 +65,14 @@ lib/
 
 </details>
 
-<details>
+
 <summary>Login Screen</summary>
 
 ![Login](https://i.postimg.cc/0yBSJ0Nb/Screenshot_20260130_153421.jpg)
 
 </details>
 
+<details>
 <summary>Language</summary>
 
 ![Login](https://i.postimg.cc/kgpStv54/Language.jpg)
@@ -115,21 +116,39 @@ lib/
 <details>
 <summary>Chat Screen</summary>
 
-<img width="526" height="861" alt="Chat_screenshot" src="https://github.com/user-attachments/assets/240105a4-484a-4144-8e99-54bc55cbe09d" />
-
 </details>
 
 <details>
 <summary>Create Event</summary>
 
-<img width="526" height="886" alt="CreateEvent_screenshot" src="https://github.com/user-attachments/assets/e2fa3479-e121-4005-90a7-1506790b039f" />
+![Create Event](https://i.postimg.cc/pLT8T6P2/Createeventscreen.jpg)
+
+</details>
+
+<summary>Edit Event</summary>
+
+![Edit Event](https://i.postimg.cc/zGBWBcqz/Editevent.jpg)
 
 </details>
 
 <details>
 <summary>Event List</summary>
 
-<img width="595" height="898" alt="EventList_screenshot" src="https://github.com/user-attachments/assets/872313d8-b79d-4db2-8bd4-181aeb699343" />
+![Event List](https://i.postimg.cc/L8bPZ38c/Evetlist.jpg)
+
+</details>
+
+<details>
+<summary>Task </summary>
+
+![Task List](https://i.postimg.cc/HL8y08JJ/Task.jpg)
+
+</details>
+
+<details>
+<summary>Task Edit </summary>
+
+![Task Edit](https://i.postimg.cc/9fw7Pw4D/Updatetask.jpg)
 
 </details>
 
