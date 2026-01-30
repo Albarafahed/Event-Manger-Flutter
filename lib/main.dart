@@ -1,14 +1,23 @@
 import 'package:event_manager/controllers/theme_controller.dart';
+import 'package:event_manager/firebase_options.dart';
 import 'package:event_manager/l10n/app_localizations.dart'
     show AppLocalizations;
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'core/routes/app_routes.dart';
 
-Future<void> main() async {
-  await GetStorage.init();
-  runApp(MyApp());
+void main() async {
+  // الخطوة 1: التأكد من تهيئة Flutter
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // الخطوة 2: تهيئة Firebase (بدونها سيظهر الخطأ الذي تراه)
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {

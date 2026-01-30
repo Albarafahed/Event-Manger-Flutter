@@ -7,6 +7,9 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_ar.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_fr.dart';
+import 'app_localizations_tr.dart';
+import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -95,7 +98,10 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
-    Locale('en')
+    Locale('en'),
+    Locale('fr'),
+    Locale('tr'),
+    Locale('zh')
   ];
 
   /// No description provided for @appTitle.
@@ -457,6 +463,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Event Added Successfully'**
   String get createEventSuccess;
+
+  /// No description provided for @loginErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Error'**
+  String get loginErrorTitle;
+
+  /// No description provided for @invalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect email or password'**
+  String get invalidCredentials;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @createError.
+  ///
+  /// In en, this message translates to:
+  /// **'Creation Error'**
+  String get createError;
+
+  /// No description provided for @editEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Event'**
+  String get editEvent;
+
+  /// No description provided for @updateButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get updateButton;
+
+  /// No description provided for @updateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Event updated successfully'**
+  String get updateSuccess;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @addSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Event added successfully'**
+  String get addSuccess;
+
+  /// No description provided for @databaseSaveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save to database'**
+  String get databaseSaveError;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'This email is already registered'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @invalidLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect email or password'**
+  String get invalidLogin;
+
+  /// No description provided for @loginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed'**
+  String get loginFailed;
+
+  /// No description provided for @welcomeUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcomeUser;
+
+  /// No description provided for @deleteEventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Event'**
+  String get deleteEventTitle;
+
+  /// No description provided for @deleteConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this event? All associated tasks will also be deleted.'**
+  String get deleteConfirmMessage;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @deleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Event deleted successfully'**
+  String get deleteSuccess;
+
+  /// No description provided for @addTaskHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new task...'**
+  String get addTaskHint;
+
+  /// No description provided for @noTasksFound.
+  ///
+  /// In en, this message translates to:
+  /// **'NoTasksFound'**
+  String get noTasksFound;
+
+  /// No description provided for @tasksProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks Progress'**
+  String get tasksProgress;
 }
 
 class _AppLocalizationsDelegate
@@ -470,7 +608,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['ar', 'en'].contains(locale.languageCode);
+      <String>['ar', 'en', 'fr', 'tr', 'zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -483,6 +621,12 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsAr();
     case 'en':
       return AppLocalizationsEn();
+    case 'fr':
+      return AppLocalizationsFr();
+    case 'tr':
+      return AppLocalizationsTr();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(

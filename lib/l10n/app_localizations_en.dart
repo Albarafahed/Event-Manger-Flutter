@@ -187,4 +187,71 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createEventSuccess => 'Event Added Successfully';
+
+  @override
+  String get loginErrorTitle => 'Login Error';
+
+  @override
+  String get invalidCredentials => 'Incorrect email or password';
+
+  @override
+  String get somethingWentWrong => 'Something went wrong';
+
+  @override
+  String get createError => 'Creation Error';
+
+  @override
+  String get editEvent => 'Edit Event';
+
+  @override
+  String get updateButton => 'Update Data';
+
+  @override
+  String get updateSuccess => 'Event updated successfully';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get addSuccess => 'Event added successfully';
+
+  @override
+  String get databaseSaveError => 'Failed to save to database';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get emailAlreadyInUse => 'This email is already registered';
+
+  @override
+  String get invalidLogin => 'Incorrect email or password';
+
+  @override
+  String get loginFailed => 'Login failed';
+
+  @override
+  String get welcomeUser => 'Welcome';
+
+  @override
+  String get deleteEventTitle => 'Delete Event';
+
+  @override
+  String get deleteConfirmMessage =>
+      'Are you sure you want to delete this event? All associated tasks will also be deleted.';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get deleteSuccess => 'Event deleted successfully';
+
+  @override
+  String get addTaskHint => 'Add a new task...';
+
+  @override
+  String get noTasksFound => 'NoTasksFound';
+
+  @override
+  String get tasksProgress => 'Tasks Progress';
 }

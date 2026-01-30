@@ -76,7 +76,7 @@ class HomeView extends StatelessWidget {
                 title: l10n.eventsListMenu, // ترجمة "Events List"
                 onTap: () {
                   Get.back();
-                  Get.to(() => EventsListView(events: controller.events));
+                  Get.to(() => EventsListView());
                 },
               ),
               _drawerItem(

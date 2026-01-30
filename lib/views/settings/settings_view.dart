@@ -19,26 +19,37 @@ class SettingsScreen extends StatelessWidget {
         title: Text(l10n.settingsTitle), // ترجمة العنوان
 
         actions: [
-          PopupMenuButton<Locale>(
-            icon: const Icon(Icons.language),
-            onSelected: (locale) {
-              TranslationService.changeLocale(locale);
-            },
-            itemBuilder: (context) {
-              return TranslationService.locales
-                  .map(
-                    (e) => PopupMenuItem(
-                      value: e,
-                      child: Text(
-                        TranslationService
-                            .langs[TranslationService.locales.indexOf(e)],
-                      ),
-                    ),
-                  )
-                  .toList();
-            },
-          ),
-        ],
+          const SizedBox(width: 48)
+        ], // حجز مساحة فقط لكي لا يغطي العنوان الزر
+        flexibleSpace: Stack(
+          children: [
+            Positioned(
+              // لتثبيت الزر في جهة اليمين دائماً بغض النظر عن اللغة
+              right: 10,
+              top: MediaQuery.of(context).padding.top +
+                  10, // لضبط مكانه تحت شريط الحالة
+              child: Directionality(
+                textDirection:
+                    TextDirection.ltr, // لضمان ظهور القائمة المنسدلة بشكل صحيح
+                child: PopupMenuButton<Locale>(
+                  icon: const Icon(Icons.language, color: Colors.white),
+                  onSelected: (locale) {
+                    TranslationService.changeLocale(locale);
+                  },
+                  itemBuilder: (context) {
+                    return TranslationService.locales.map((e) {
+                      int index = TranslationService.locales.indexOf(e);
+                      return PopupMenuItem(
+                        value: e,
+                        child: Text(TranslationService.langs[index]),
+                      );
+                    }).toList();
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

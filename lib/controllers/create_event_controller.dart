@@ -1,4 +1,7 @@
+import 'package:event_manager/controllers/events_list_controller.dart';
+import 'package:event_manager/core/database/db_helper.dart';
 import 'package:event_manager/l10n/app_localizations.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -12,7 +15,7 @@ class CreateEventController extends GetxController {
   final dateController = TextEditingController();
   final timeController = TextEditingController();
   final locationController = TextEditingController();
-
+final l10n = AppLocalizations.of(Get.context!)!;
   final RxString eventType = "Other".obs;
 
   final List<String> eventTypes = [
@@ -49,11 +52,40 @@ class CreateEventController extends GetxController {
     }
   }
 
-  // ===== Submit Event =====
-  void submitEvent(Function(EventModel) onAddEvent) {
+  final dbHelper = DbHelper();
+  // الوصول للكنترولر الخاص بالقائمة لجلب بيانات التعديل
+
+  final listController = Get.isRegistered<EventsListController>()
+      ? Get.find<EventsListController>()
+      : Get.put(EventsListController());
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    // بدلاً من Get.find المباشر، نستخدم Get.put لضمان وجوده إذا لم يكن موجوداً
+
+    if (listController.editingEvent != null) {
+      var e = listController.editingEvent!;
+      titleController.text = e.title;
+      descriptionController.text = e.description;
+      dateController.text = e.date;
+      timeController.text = e.time;
+      locationController.text = e.location;
+      eventType.value = e.type;
+    }
+  }
+
+  Future<void> submitEvent(Function(EventModel) onAddEvent) async {
     if (!formKey.currentState!.validate()) return;
 
+    final User? firebaseUser = FirebaseAuth.instance.currentUser;
+    if (firebaseUser == null) return;
+
+    // إنشاء كائن الفعالية (مع الحفاظ على الـ ID القديم إذا كنا في وضع التعديل)
     final event = EventModel(
+      id: listController.editingEvent?.id, // مهم جداً للتعديل
+      userId: firebaseUser.uid,
       title: titleController.text,
       description: descriptionController.text,
       date: dateController.text,
@@ -62,18 +94,26 @@ class CreateEventController extends GetxController {
       type: eventType.value,
     );
 
-    onAddEvent(event);
+    try {
+      if (listController.editingEvent == null) {
+        // وضع الإضافة
+        await dbHelper.insertEvent(event.toMap());
+        Get.snackbar(l10n.success,l10n.addSuccess);
+      } else {
+        // وضع التعديل
+        await dbHelper.updateEvent(event);
+        Get.snackbar(l10n.success,l10n.updateSuccess);
+      }
 
-    // ✅ رسالة نجاح
-    Get.snackbar(
-      AppLocalizations.of(Get.context!)!.successTitle,
-      AppLocalizations.of(Get.context!)!.createEventSuccess,
-      snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.green,
-      colorText: Colors.white,
-    );
+      onAddEvent(event);
+      Get.back();
+      _clearFields();
+    } catch (e) {
+      Get.snackbar(l10n.error,l10n.databaseSaveError);
+    }
+  }
 
-    // ✅ تصفير الحقول
+  void _clearFields() {
     titleController.clear();
     descriptionController.clear();
     dateController.clear();

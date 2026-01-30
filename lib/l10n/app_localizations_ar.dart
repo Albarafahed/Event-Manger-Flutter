@@ -188,4 +188,71 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get createEventSuccess => 'تمت إضافة الحدث بنجاح';
+
+  @override
+  String get loginErrorTitle => 'خطأ في الدخول';
+
+  @override
+  String get invalidCredentials => 'البريد أو كلمة المرور غير صحيحة';
+
+  @override
+  String get somethingWentWrong => 'حدث خطأ ما';
+
+  @override
+  String get createError => 'خطأ في الإنشاء';
+
+  @override
+  String get editEvent => 'تعديل الفعالية';
+
+  @override
+  String get updateButton => 'تحديث البيانات';
+
+  @override
+  String get updateSuccess => 'تم تحديث الفعالية بنجاح';
+
+  @override
+  String get success => 'نجاح';
+
+  @override
+  String get addSuccess => 'تمت إضافة الفعالية بنجاح';
+
+  @override
+  String get databaseSaveError => 'فشل الحفظ في قاعدة البيانات';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get emailAlreadyInUse => 'هذا البريد مسجل مسبقاً';
+
+  @override
+  String get invalidLogin => 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+
+  @override
+  String get loginFailed => 'فشل الدخول';
+
+  @override
+  String get welcomeUser => 'مرحباً بك';
+
+  @override
+  String get deleteEventTitle => 'حذف الفعالية';
+
+  @override
+  String get deleteConfirmMessage =>
+      'هل أنت متأكد من رغبتك في حذف هذه الفعالية؟ سيتم حذف جميع المهام المرتبطة بها أيضاً.';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get deleteSuccess => 'تم حذف الفعالية بنجاح';
+
+  @override
+  String get addTaskHint => 'أضف مهمة جديدة...';
+
+  @override
+  String get noTasksFound => 'لا يوجد مهام';
+
+  @override
+  String get tasksProgress => 'نسبة إنجاز المهام';
 }

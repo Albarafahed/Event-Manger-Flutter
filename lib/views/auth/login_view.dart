@@ -1,3 +1,4 @@
+import 'package:event_manager/core/services/lang_service.dart';
 import 'package:event_manager/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,18 +16,41 @@ class LoginView extends StatelessWidget {
     final controller = Get.put(LoginController());
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.loginButton), actions: [
-        IconButton(
-          icon: const Icon(Icons.language),
-          onPressed: () {
-            if (Get.locale?.languageCode == 'ar') {
-              Get.updateLocale(const Locale('en'));
-            } else {
-              Get.updateLocale(const Locale('ar'));
-            }
-          },
+      appBar: AppBar(
+        title: Text(l10n.loginButton),
+        actions: [
+          const SizedBox(width: 48)
+        ], // حجز مساحة فقط لكي لا يغطي العنوان الزر
+        flexibleSpace: Stack(
+          children: [
+            Positioned(
+              // لتثبيت الزر في جهة اليمين دائماً بغض النظر عن اللغة
+              right: 10,
+              top: MediaQuery.of(context).padding.top +
+                  10, // لضبط مكانه تحت شريط الحالة
+              child: Directionality(
+                textDirection:
+                    TextDirection.ltr, // لضمان ظهور القائمة المنسدلة بشكل صحيح
+                child: PopupMenuButton<Locale>(
+                  icon: const Icon(Icons.language, color: Colors.white),
+                  onSelected: (locale) {
+                    TranslationService.changeLocale(locale);
+                  },
+                  itemBuilder: (context) {
+                    return TranslationService.locales.map((e) {
+                      int index = TranslationService.locales.indexOf(e);
+                      return PopupMenuItem(
+                        value: e,
+                        child: Text(TranslationService.langs[index]),
+                      );
+                    }).toList();
+                  },
+                ),
+              ),
+            ),
+          ],
         ),
-      ]),
+      ),
       backgroundColor: Colors.deepPurple[50],
       body: Center(
         child: SingleChildScrollView(

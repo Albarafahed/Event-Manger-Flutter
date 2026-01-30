@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "247049040938",
+    "project_id": "event-mager",
+    "storage_bucket": "event-mager.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247049040938:android:fdada1cdcb8b63610f3f53",
+        "android_client_info": {
+          "package_name": "com.example.event_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQZEKsAx-vLLoZmepz2MVC5ph_axVC87o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,54 +1,68 @@
 import 'package:event_manager/l10n/app_localizations.dart';
+import 'package:event_manager/views/EventDetailsView.dart';
+import 'package:event_manager/views/events/create_event_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/events_list_controller.dart';
 import '../../models/event_model.dart';
 
 class EventsListView extends StatelessWidget {
-  final List<EventModel> events;
-
-  const EventsListView({super.key, required this.events});
+  const EventsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // استخدمنا اسم l10n ليكون موحداً وسهلاً
     final l10n = AppLocalizations.of(context)!;
-    final controller = Get.put(EventsListController());
-    controller.setEvents(events);
+
+    final controller = Get.isRegistered<EventsListController>()
+        ? Get.find<EventsListController>()
+        : Get.put(EventsListController());
 
     return DefaultTabController(
-      // نستخدم طول قائمة tabKeys من الكنترولر
       length: controller.tabKeys.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text(l10n.eventsTitle),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: () => controller.loadEventsFromDatabase(),
+            )
+          ],
           bottom: TabBar(
             isScrollable: true,
-            // نستخدم tabKeys ونحولها لأسماء مترجمة عبر دالة getTabName
             tabs: controller.tabKeys.map((key) {
               return Tab(text: controller.getTabName(context, key));
             }).toList(),
             indicatorColor: Colors.blue,
-            unselectedLabelColor: Colors.white,
-
+            unselectedLabelColor: Colors.grey,
             labelColor: const Color.fromARGB(255, 183, 58, 58),
-
             labelStyle: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         body: TabBarView(
-          // نمرر الـ key الأصلي للفلترة لضمان دقة البيانات
-          children: controller.tabKeys
-              .map(
-                (key) => Obx(
-                    () => _buildList(context, controller.filterByType(key))),
-              )
-              .toList(),
+          children: controller.tabKeys.map((key) {
+            return Obx(() {
+              final filteredList = controller.filterByType(key);
+              return _buildList(context, filteredList, controller);
+            });
+          }).toList(),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            controller.editingEvent = null;
+            Get.to(() => CreateEventView(onAddEvent: (event) {
+                  controller.loadEventsFromDatabase();
+                }));
+          },
         ),
       ),
     );
   }
 
-  Widget _buildList(BuildContext context, List<EventModel> list) {
+  Widget _buildList(BuildContext context, List<EventModel> list,
+      EventsListController controller) {
     final l10n = AppLocalizations.of(context)!;
 
     if (list.isEmpty) {
@@ -75,12 +89,11 @@ class EventsListView extends StatelessWidget {
         return Card(
           elevation: 2,
           margin: const EdgeInsets.only(bottom: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           child: ListTile(
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             title: Text(
               event.title,
               style: const TextStyle(fontWeight: FontWeight.bold),
@@ -89,17 +102,59 @@ class EventsListView extends StatelessWidget {
               padding: const EdgeInsets.only(top: 4),
               child: Text("${event.date} - ${event.time}\n${event.location}"),
             ),
-            trailing: Chip(
-              label: Text(
-                // يمكنك أيضاً هنا عمل دالة لترجمة نوع الفعالية الظاهر في الـ Chip
-                event.type,
-                style: const TextStyle(fontSize: 12),
+            trailing: SizedBox(
+              width: 100,
+              child: Wrap(
+                spacing: 0,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.edit, color: Colors.blue, size: 22),
+                    onPressed: () {
+                      controller.prepareUpdate(event);
+                      Get.to(() => CreateEventView(onAddEvent: (updatedEvent) {
+                            controller.loadEventsFromDatabase();
+                          }));
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete_outline,
+                        color: Colors.red, size: 22),
+                    onPressed: () =>
+                        _confirmDelete(context, controller, event.id!),
+                  ),
+                ],
               ),
-              backgroundColor: Colors.deepPurple[50],
             ),
+            onTap: () {
+              Get.to(() => EventDetailsView(event: event));
+            },
           ),
         );
       },
+    );
+  }
+
+  void _confirmDelete(
+      BuildContext context, EventsListController controller, int id) {
+    // 1. يجب تعريف l10n هنا أيضاً لأنها دالة منفصلة
+    final l10n = AppLocalizations.of(context)!;
+
+    Get.dialog(
+      AlertDialog(
+        // 2. إزالة كلمة const لأن النصوص المترجمة ليست ثابتة برمجياً
+        title: Text(l10n.deleteEventTitle),
+        content: Text(l10n.deleteConfirmMessage),
+        actions: [
+          TextButton(onPressed: () => Get.back(), child: Text(l10n.cancel)),
+          TextButton(
+            onPressed: () {
+              controller.deleteEvent(id);
+              Get.back();
+            },
+            child: Text(l10n.delete, style: const TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
     );
   }
 }
