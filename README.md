@@ -118,7 +118,7 @@ lib/
 
 ![Setting](https://i.postimg.cc/4x70cw5C/Chat-Screen.jpg)
 
-</details
+</details>
 
 <details>
 <summary>Create Event</summary>
