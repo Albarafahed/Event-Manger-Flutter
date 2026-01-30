@@ -61,7 +61,7 @@ lib/
 <details>
 <summary>Splash Screen</summary>
 
-![Splash]([![Splashscreen.jpg](https://i.postimg.cc/B6D23P4n/Splashscreen.jpg)
+![Splash](https://i.postimg.cc/B6D23P4n/Splashscreen.jpg)
 
 </details>
 
