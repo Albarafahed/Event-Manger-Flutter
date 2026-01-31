@@ -1,6 +1,5 @@
 import 'package:event_manager/controllers/task_controller.dart';
 import 'package:event_manager/l10n/app_localizations.dart';
-import 'package:event_manager/l10n/app_localizations_ar.dart';
 import 'package:event_manager/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
